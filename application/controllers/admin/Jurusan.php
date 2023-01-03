@@ -28,8 +28,8 @@ class Jurusan extends CI_Controller{
         $kd_jurusan = $this->jurusan_model->createKode();
 
         $data = array(
-            'kd_jurusan' => $kd_jurusan,
-            'nm_jurusan' => $nm_jurusan
+            'kode'          => $kd_jurusan,
+            'nama_jurusan'  => $nm_jurusan
         );
         $this->jurusan_model->input_data('jurusan', $data);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Jurusan berhasil ditambahkan!</div>');

@@ -6,8 +6,8 @@ class Jurusan_model extends CI_Model{
     //autogenerate kode jurusan
     public function createKode()
     {
-        $this->db->select('RIGHT(jurusan.kd_jurusan,3) as kode_jurusan', FALSE);
-        $this->db->order_by('kd_jurusan','DESC');    
+        $this->db->select('RIGHT(jurusan.kode,3) as kode_jurusan', FALSE);
+        $this->db->order_by('kode','DESC');    
         $this->db->limit(1);
         
         $query = $this->db->get('jurusan');

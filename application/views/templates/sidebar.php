@@ -74,7 +74,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../../iframe.html" <?=$this->uri->segment(2) == 'users' ? 'class="nav-link active"' : 'class="nav-link"' ?>>
+            <a href="<?=base_url('admin/users'); ?>" <?=$this->uri->segment(2) == 'users' ? 'class="nav-link active"' : 'class="nav-link"' ?>>
               <i class="nav-icon fas fa-users"></i>
               <p>Users</p>
             </a>
