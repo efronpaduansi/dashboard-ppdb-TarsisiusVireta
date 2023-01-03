@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Kelas</h1>
+            <h1>Data Jurusan</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -29,28 +29,28 @@
                   <tr>
                     <th>#</th>
                     <th>Kode</th>
-                    <th>Kelas</th>
+                    <th>Jurusan</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
                     <?php 
                         $no = 1;
-                        foreach($kelas as $kls) :
+                        foreach($jurusan as $j) :
                       ?>
                     <tr>
 
                       <th><?=$no; ?></th>
-                      <td><?=$kls->kode; ?></td>
-                      <td><?=$kls->nama_kelas; ?></td>
+                      <td><?=$j->kd_jurusan; ?></td>
+                      <td><?=$j->nm_jurusan; ?></td>
                       <td>
                           <!-- Button trigger edit modal -->
-                          <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#editModal<?php echo $kls->kode; ?>">
+                          <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#editModal<?php echo $j->id; ?>">
                             Edit
                           </button>
 
                           <!-- Edit Modal -->
-                          <div class="modal fade" id="editModal<?php echo $kls->kode; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal fade" id="editModal<?php echo $j->id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header navbar-orange navbar-light">
@@ -60,11 +60,11 @@
                                   </button>
                                 </div>
                                 <div class="modal-body">
-                                  <form action="<?=base_url('admin/kelas/update'); ?>" method="POST" class="needs-validation" novalidate>
-                                      <input type="hidden" name="id" value="<?=$kls->kode; ?>">
+                                  <form action="<?=base_url('admin/jurusan/update'); ?>" method="POST" class="needs-validation" novalidate>
+                                      <input type="hidden" name="id" value="<?=$j->id; ?>">
                                       <div class="form-group">
-                                          <label for="nm_kelas">Kelas <small class="text-danger">*</small></label>
-                                          <input type="text" class="form-control" name="nm_kelas" id="nm_kelas" value="<?=$kls->nama_kelas; ?>" required>
+                                          <label for="nm_jurusan">Kelas <small class="text-danger">*</small></label>
+                                          <input type="text" class="form-control" name="nm_jurusan" id="nm_jurusan" value="<?=$j->nm_jurusan; ?>" required>
                                           <div class="invalid-feedback">
                                               Field ini wajib di isi!
                                           </div>
@@ -80,7 +80,7 @@
                             </div>
                           </div>
 
-                          <a href="<?=base_url('admin/kelas/destroy/') . $kls->kode; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin menghapus data ini?')">Delete</a>
+                          <a href="<?=base_url('admin/jurusan/destroy/') . $j->id; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin menghapus data ini?')">Delete</a>
                       </td>
                     </tr>
 
@@ -107,32 +107,31 @@
   <!-- /.content-wrapper -->
 
   <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header navbar-orange navbar-light">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah kelas</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="<?=base_url('admin/kelas/store'); ?>" method="POST" class="needs-validation" novalidate>
-            <div class="form-group">
-                <label for="nm_kelas">Kelas <small class="text-danger">*</small></label>
-                <input type="text" class="form-control" name="nm_kelas" id="nm_kelas" required>
-                <div class="invalid-feedback">
-                    Field ini wajib di isi!
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header navbar-orange navbar-light">
+            <h5 class="modal-title" id="exampleModalLabel">Tambah jurusan</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form action="<?=base_url('admin/jurusan/store'); ?>" method="POST" class="needs-validation" novalidate>
+                <div class="form-group">
+                    <label for="nm_jurusan">Jurusan <small class="text-danger">*</small></label>
+                    <input type="text" class="form-control" name="nm_jurusan" id="nm_jurusan" required>
+                    <div class="invalid-feedback">
+                        Field ini wajib di isi!
+                    </div>
                 </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>    
-        </form>
-      </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>    
+            </form>
+        </div>
+        </div>
     </div>
-  </div>
-</div>
+    </div>
  

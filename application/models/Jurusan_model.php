@@ -1,33 +1,34 @@
 <?php
 
-class Kelas_model extends CI_Model{
+class Jurusan_model extends CI_Model{
 
-	public function get_all_data()
-	{
-		return $this->db->get('kelas');
-	}
-	
-	//membuat kode kelas otomatis
+
+    //autogenerate kode jurusan
     public function createKode()
     {
-        $this->db->select('RIGHT(kelas.kode,3) as kode_kelas', FALSE);
-        $this->db->order_by('kode','DESC');    
+        $this->db->select('RIGHT(jurusan.kd_jurusan,3) as kode_jurusan', FALSE);
+        $this->db->order_by('kd_jurusan','DESC');    
         $this->db->limit(1);
         
-        $query = $this->db->get('kelas');
+        $query = $this->db->get('jurusan');
         if($query->num_rows() <> 0){      
              $data = $query->row();
-             $kode = intval($data->kode_kelas) + 1; 
+             $kode = intval($data->kode_jurusan) + 1; 
         }
         else{      
              $kode = 1;  
         }
         $batas = str_pad($kode, 3, "0", STR_PAD_LEFT);    
-        $kodetampil = "KLS".$batas;
+        $kodetampil = "J22".$batas;
         return $kodetampil;
     }
 
-	public function input_data($table, $data)
+    public function get_all_data()
+	{
+		return $this->db->get('jurusan');
+	}
+
+    public function input_data($table, $data)
 	{
 		$this->db->insert($table, $data);
 	}
@@ -43,4 +44,5 @@ class Kelas_model extends CI_Model{
         $this->db->where($where);
         $this->db->update($table, $data);
    }
+
 }

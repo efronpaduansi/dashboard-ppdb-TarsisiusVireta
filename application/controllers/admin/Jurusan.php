@@ -1,0 +1,66 @@
+<?php
+
+class Jurusan extends CI_Controller{
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('jurusan_model');
+    }
+
+    public function index()
+    { 
+        $data['title'] = 'Data Jurusan';
+        $data['jurusan'] = $this->jurusan_model->get_all_data()->result();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/navbar');
+        $this->load->view('templates/sidebar');
+        $this->load->view('admin/v_jurusan');
+        $this->load->view('templates/footer');
+
+    }
+
+    //input new jurusan
+    public function store()
+    {
+        $nm_jurusan = $this->input->post('nm_jurusan');
+        $kd_jurusan = $this->jurusan_model->createKode();
+
+        $data = array(
+            'kd_jurusan' => $kd_jurusan,
+            'nm_jurusan' => $nm_jurusan
+        );
+        $this->jurusan_model->input_data('jurusan', $data);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Jurusan berhasil ditambahkan!</div>');
+        redirect('admin/jurusan');
+        
+    }
+
+    public function destroy($id)
+    {
+        $where = array('id' => $id);
+        $this->jurusan_model->delete('jurusan', $where);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Jurusan berhasil dihapus!</div>');
+        redirect('admin/jurusan');
+    }
+
+    public function update()
+    {
+        //tangkap data yang dikirimkan
+        $id             = $this->input->post('id');
+        $nm_jurusan     = $this->input->post('nm_jurusan');
+
+        $data = array(
+            'nm_jurusan' => $nm_jurusan
+        );
+        $where = array(
+            'id' => $id
+        );
+
+        $this->jurusan_model->update_data('jurusan', $data, $where);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Jurusan berhasil diubah!</div>');
+        redirect('admin/jurusan');
+    }
+
+}

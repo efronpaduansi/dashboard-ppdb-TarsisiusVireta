@@ -2,6 +2,13 @@
 
 class Kelas extends CI_Controller{
 
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('kelas_model');
+    }
+
     public function index()
     {
         $data['title'] = 'Data Kelas';
@@ -19,8 +26,8 @@ class Kelas extends CI_Controller{
         $kd_kelas = $this->kelas_model->createKode();
 
         $data = array(
-            'kd_kelas' => $kd_kelas,
-            'nm_kelas' => $nm_kelas
+            'kode'          => $kd_kelas,
+            'nama_kelas'    => $nm_kelas
         );
         $this->kelas_model->input_data('kelas', $data);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Kelas berhasil ditambahkan!</div>');
