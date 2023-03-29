@@ -8,24 +8,24 @@ class Kelas_model extends CI_Model{
 	}
 	
 	//membuat kode kelas otomatis
-    public function createKode()
-    {
-        $this->db->select('RIGHT(kelas.kode,3) as kode_kelas', FALSE);
-        $this->db->order_by('kode','DESC');    
-        $this->db->limit(1);
+    // public function createKode()
+    // {
+    //     $this->db->select('RIGHT(kelas.kode,3) as kode_kelas', FALSE);
+    //     $this->db->order_by('kode','DESC');    
+    //     $this->db->limit(1);
         
-        $query = $this->db->get('kelas');
-        if($query->num_rows() <> 0){      
-             $data = $query->row();
-             $kode = intval($data->kode_kelas) + 1; 
-        }
-        else{      
-             $kode = 1;  
-        }
-        $batas = str_pad($kode, 3, "0", STR_PAD_LEFT);    
-        $kodetampil = "KLS".$batas;
-        return $kodetampil;
-    }
+    //     $query = $this->db->get('kelas');
+    //     if($query->num_rows() <> 0){      
+    //          $data = $query->row();
+    //          $kode = intval($data->kode_kelas) + 1; 
+    //     }
+    //     else{      
+    //          $kode = 1;  
+    //     }
+    //     $batas = str_pad($kode, 3, "0", STR_PAD_LEFT);    
+    //     $kodetampil = "KLS".$batas;
+    //     return $kodetampil;
+    // }
 
 	public function input_data($table, $data)
 	{

@@ -34,7 +34,7 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
-            <a href="<?=base_url('admin/dashboard') ?>" <?=$this->uri->segment(2) == 'dashboard' ? 'class="nav-link active"' : 'class="nav-link"' ?> >
+            <a href="<?=base_url('dashboard') ?>" <?=$this->uri->segment(1) == 'dashboard' ? 'class="nav-link active"' : 'class="nav-link"' ?> >
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -43,7 +43,7 @@
           </li>
           <li class="nav-header">MASTER MENU</li>
           <li class="nav-item">
-            <a href="<?=base_url('admin/pendaftaran'); ?>" <?=$this->uri->segment(2) == 'pendaftaran' ? 'class="nav-link active"' : 'class="nav-link"' ?> >
+            <a href="<?=base_url('pendaftaran'); ?>" <?=$this->uri->segment(1) == 'pendaftaran' ? 'class="nav-link active"' : 'class="nav-link"' ?> >
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Pendaftaran
@@ -51,7 +51,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?=base_url('admin/kelas'); ?>" <?=$this->uri->segment(2) == 'kelas' ? 'class="nav-link active"' : 'class="nav-link"' ?>>
+            <a href="<?=base_url('siswa'); ?>" <?=$this->uri->segment(1) == 'pendaftaran' ? 'class="nav-link active"' : 'class="nav-link"' ?> >
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Siswa
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?=base_url('kelas'); ?>" <?=$this->uri->segment(1) == 'kelas' ? 'class="nav-link active"' : 'class="nav-link"' ?>>
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Kelas
@@ -59,7 +67,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?=base_url('admin/jurusan'); ?>" <?=$this->uri->segment(2) == 'jurusan' ? 'class="nav-link active"' : 'class="nav-link"' ?>>
+            <a href="<?=base_url('jurusan'); ?>" <?=$this->uri->segment(1) == 'jurusan' ? 'class="nav-link active"' : 'class="nav-link"' ?>>
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Jurusan
@@ -68,19 +76,19 @@
           </li>
           <li class="nav-header">PREFERENCES</li>
           <li class="nav-item">
-            <a href="<?=base_url('admin/profile'); ?>" <?=$this->uri->segment(2) == 'profile' ? 'class="nav-link active"' : 'class="nav-link"' ?>>
+            <a href="<?=base_url('my-profile'); ?>" <?=$this->uri->segment(1) == 'profile' ? 'class="nav-link active"' : 'class="nav-link"' ?>>
               <i class="nav-icon fas fa-user"></i>
               <p>Profile</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?=base_url('admin/users'); ?>" <?=$this->uri->segment(2) == 'users' ? 'class="nav-link active"' : 'class="nav-link"' ?>>
+          <a href="<?=base_url('users'); ?>" <?=$this->uri->segment(1) == 'users' ? 'class="nav-link active"' : 'class="nav-link"' ?>>
               <i class="nav-icon fas fa-users"></i>
               <p>Users</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.1/" <?=$this->uri->segment(2) == 'setting' ? 'class="nav-link active"' : 'class="nav-link"' ?>>
+            <a href="https://adminlte.io/docs/3.1/" <?=$this->uri->segment(1) == 'setting' ? 'class="nav-link active"' : 'class="nav-link"' ?>>
               <i class="nav-icon fas fa-cog"></i>
               <p>Setting</p>
             </a>

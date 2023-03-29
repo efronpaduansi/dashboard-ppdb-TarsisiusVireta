@@ -28,7 +28,6 @@
                   <thead>
                   <tr>
                     <th>#</th>
-                    <th>Kode</th>
                     <th>Kelas</th>
                     <th>Aksi</th>
                   </tr>
@@ -41,16 +40,15 @@
                     <tr>
 
                       <th><?=$no; ?></th>
-                      <td><?=$kls->kode; ?></td>
                       <td><?=$kls->nama_kelas; ?></td>
                       <td>
                           <!-- Button trigger edit modal -->
-                          <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#editModal<?php echo $kls->kode; ?>">
+                          <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#editModal<?php echo $kls->id; ?>">
                             Edit
                           </button>
 
                           <!-- Edit Modal -->
-                          <div class="modal fade" id="editModal<?php echo $kls->kode; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal fade" id="editModal<?php echo $kls->id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header navbar-orange navbar-light">
@@ -61,7 +59,7 @@
                                 </div>
                                 <div class="modal-body">
                                   <form action="<?=base_url('admin/kelas/update'); ?>" method="POST" class="needs-validation" novalidate>
-                                      <input type="hidden" name="id" value="<?=$kls->kode; ?>">
+                                      <input type="hidden" name="id" value="<?=$kls->id; ?>">
                                       <div class="form-group">
                                           <label for="nm_kelas">Kelas <small class="text-danger">*</small></label>
                                           <input type="text" class="form-control" name="nm_kelas" id="nm_kelas" value="<?=$kls->nama_kelas; ?>" required>
@@ -80,7 +78,7 @@
                             </div>
                           </div>
 
-                          <a href="<?=base_url('admin/kelas/destroy/') . $kls->kode; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin menghapus data ini?')">Delete</a>
+                          <a href="<?=base_url('admin/kelas/destroy/') . $kls->id; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin menghapus data ini?')">Delete</a>
                       </td>
                     </tr>
 

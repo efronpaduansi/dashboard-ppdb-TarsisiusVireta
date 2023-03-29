@@ -5,13 +5,13 @@ class Jurusan extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('jurusan_model');
+        $this->load->model('jurusan_model', 'jurusan');
     }
 
     public function index()
     { 
         $data['title'] = 'Data Jurusan';
-        $data['jurusan'] = $this->jurusan_model->get_all_data()->result();
+        $data['jurusan'] = $this->jurusan->get_all_data()->result();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar');
@@ -25,24 +25,23 @@ class Jurusan extends CI_Controller{
     public function store()
     {
         $nm_jurusan = $this->input->post('nm_jurusan');
-        $kd_jurusan = $this->jurusan_model->createKode();
+        // $kd_jurusan = $this->jurusan->createKode();
 
         $data = array(
-            'kode'          => $kd_jurusan,
             'nama_jurusan'  => $nm_jurusan
         );
-        $this->jurusan_model->input_data('jurusan', $data);
+        $this->jurusan->input_data('jurusan', $data);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Jurusan berhasil ditambahkan!</div>');
-        redirect('admin/jurusan');
+        redirect('jurusan');
         
     }
 
     public function destroy($id)
     {
         $where = array('id' => $id);
-        $this->jurusan_model->delete('jurusan', $where);
+        $this->jurusan->delete('jurusan', $where);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Jurusan berhasil dihapus!</div>');
-        redirect('admin/jurusan');
+        redirect('jurusan');
     }
 
     public function update()
@@ -52,15 +51,15 @@ class Jurusan extends CI_Controller{
         $nm_jurusan     = $this->input->post('nm_jurusan');
 
         $data = array(
-            'nm_jurusan' => $nm_jurusan
+            'nama_jurusan' => $nm_jurusan
         );
         $where = array(
             'id' => $id
         );
 
-        $this->jurusan_model->update_data('jurusan', $data, $where);
+        $this->jurusan->update_data('jurusan', $data, $where);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Jurusan berhasil diubah!</div>');
-        redirect('admin/jurusan');
+        redirect('jurusan');
     }
 
 }
