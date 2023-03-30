@@ -21,7 +21,7 @@
             <div class="card">
               <!-- /.card-header -->
               <div class="card-body">
-                <form action="" method="POST">
+                <form action="<?=base_url('siswa/send-pendaftaran') ?>" method="POST">
                     <div class="form-group">
                         <label for="nama_lengkap">Nama Lengkap</label>
                         <input type="text" name="nama_lengkap" class="form-control" autofocus required>
@@ -58,7 +58,7 @@
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat</label>
-                        <textarea name="" id="" cols="30" rows="2" class="form-control" required></textarea>
+                        <textarea name="alamat" cols="30" rows="2" class="form-control" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="nm_ibu">Nama Ibu Kandung</label>

@@ -51,7 +51,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?=base_url('siswa'); ?>" <?=$this->uri->segment(1) == 'pendaftaran' ? 'class="nav-link active"' : 'class="nav-link"' ?> >
+            <a href="<?=base_url('siswa'); ?>" <?=$this->uri->segment(1) == 'siswa' ? 'class="nav-link active"' : 'class="nav-link"' ?> >
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Siswa
