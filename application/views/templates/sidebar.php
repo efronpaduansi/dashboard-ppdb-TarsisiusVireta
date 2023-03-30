@@ -43,7 +43,7 @@
           </li>
           <li class="nav-header">MASTER MENU</li>
           <li class="nav-item">
-            <a href="<?=base_url('pendaftaran'); ?>" <?=$this->uri->segment(1) == 'pendaftaran' ? 'class="nav-link active"' : 'class="nav-link"' ?> >
+            <a href="<?=base_url('data-pendaftaran'); ?>" <?=$this->uri->segment(1) == 'data-pendaftaran' ? 'class="nav-link active"' : 'class="nav-link"' ?> >
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Pendaftaran

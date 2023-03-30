@@ -21,5 +21,32 @@ class DataPendaftaran extends CI_Controller {
 
     }
 
+    public function accept($id)
+    {
+        $data = [
+            'status' => 'Diterima'
+        ];
+        $this->pendaftaran->do_accept($id, $data);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Berhasil mengubah data!</div>');
+        redirect('data-pendaftaran');
+    }
+
+    public function reject($id)
+    {
+        $data = [
+            'status' => 'Ditolak'
+        ];
+        $this->pendaftaran->do_reject($id, $data);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Berhasil mengubah data!</div>');
+        redirect('data-pendaftaran');
+    }
+
+    public function delete(){
+        $id = $this->input->post('id');
+        $this->pendaftaran->do_delete($id);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-warning" role="alert">Berhasil menghapus data!</div>');
+        redirect('data-pendaftaran');
+    }
+
 
 }

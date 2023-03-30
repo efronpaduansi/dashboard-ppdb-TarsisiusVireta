@@ -55,7 +55,10 @@ $route['translate_uri_dashes'] = FALSE;
 
 //Routes for Master Data
 $route['dashboard'] = 'admin/Dashboard';
-$route['pendaftaran'] = 'admin/DataPendaftaran';
+$route['data-pendaftaran'] = 'admin/DataPendaftaran';
+$route['data-pendaftaran/terima/(:any)'] = 'admin/DataPendaftaran/accept/$1';
+$route['data-pendaftaran/tolak/(:any)'] = 'admin/DataPendaftaran/reject/$1';
+$route['data-pendaftaran/hapus'] = 'admin/DataPendaftaran/delete';
 $route['siswa'] = 'admin/Siswa';
 $route['kelas'] = 'admin/Kelas';
 $route['jurusan'] = 'admin/Jurusan';
