@@ -53,8 +53,15 @@ $route['default_controller'] = 'auth';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+//Routes for Master Data
 $route['dashboard'] = 'admin/Dashboard';
 $route['pendaftaran'] = 'admin/Pendaftaran';
 $route['siswa'] = 'admin/Siswa';
 $route['kelas'] = 'admin/Kelas';
 $route['jurusan'] = 'admin/Jurusan';
+$route['jurusan'] = 'admin/Jurusan';
+
+//Routes for Preferences
+$route['users'] = 'admin/Users';
+
+$route['siswa/pendaftaran'] = 'student/Pendaftaran';

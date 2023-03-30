@@ -29,7 +29,7 @@ class Kelas extends CI_Controller{
         );
         $this->kelas->input_data('kelas', $data);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Kelas berhasil ditambahkan!</div>');
-        redirect('admin/kelas');
+        redirect('kelas');
     }
 
     public function destroy($id)
@@ -37,7 +37,7 @@ class Kelas extends CI_Controller{
         $where = array('id' => $id);
         $this->kelas->delete('kelas', $where);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Kelas berhasil dihapus!</div>');
-        redirect('admin/kelas');
+        redirect('kelas');
     }
 
     //fungsi edit sudah digantikan dengan modal
@@ -49,7 +49,7 @@ class Kelas extends CI_Controller{
         $nm_kelas   = $this->input->post('nm_kelas');
 
         $data = array(
-            'nm_kelas' => $nm_kelas
+            'nama_kelas' => $nm_kelas
         );
         $where = array(
             'id' => $id
@@ -57,6 +57,6 @@ class Kelas extends CI_Controller{
 
         $this->kelas->update_data('kelas', $data, $where);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Kelas berhasil diubah!</div>');
-        redirect('admin/kelas');
+        redirect('kelas');
     }
 }
