@@ -41,10 +41,10 @@
                     <tr>
 
                       <th><?=$no; ?></th>
-                      <td><?=$u->name; ?></td>
-                      <td><?=$u->email; ?></td>
+                      <td><?=$u['name']; ?></td>
+                      <td><?=$u['email']; ?></td>
                       <td>
-                          <a href="<?=base_url('admin/users/destroy/') . $u->id; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin menghapus data ini?')">Delete</a>
+                          <a href="<?=base_url('admin/users/destroy/') . $u['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin menghapus data ini?')">Delete</a>
                       </td>
                     </tr>
 

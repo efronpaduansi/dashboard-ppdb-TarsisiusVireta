@@ -13,7 +13,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-        <button type="button" class="btn btn-danger">Yakin</button>
+        <a href="<?=base_url('logout') ?>" class="btn btn-danger">Yakin</a>
       </div>
     </div>
   </div>

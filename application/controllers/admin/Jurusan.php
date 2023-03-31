@@ -5,6 +5,10 @@ class Jurusan extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
+         //jika belum login maka akan diarahkan ke halaman login
+         if (!$this->session->userdata('email')) {
+            redirect('login');
+        }
         $this->load->model('jurusan_model', 'jurusan');
     }
 

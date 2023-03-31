@@ -53,13 +53,18 @@ $route['default_controller'] = 'auth';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+//Routes for Auth
+$route['login'] = 'auth';
+$route['login-check'] = 'auth/loginCheck';
+$route['logout'] = 'auth/logout';
+
 //Routes for Master Data
 $route['dashboard'] = 'admin/Dashboard';
 $route['data-pendaftaran'] = 'admin/DataPendaftaran';
 $route['data-pendaftaran/terima/(:any)'] = 'admin/DataPendaftaran/accept/$1';
 $route['data-pendaftaran/tolak/(:any)'] = 'admin/DataPendaftaran/reject/$1';
 $route['data-pendaftaran/hapus'] = 'admin/DataPendaftaran/delete';
-$route['siswa'] = 'admin/Siswa';
+$route['siswa'] = 'admin/DataSiswa';
 $route['kelas'] = 'admin/Kelas';
 $route['jurusan'] = 'admin/Jurusan';
 $route['jurusan'] = 'admin/Jurusan';
@@ -69,3 +74,6 @@ $route['users'] = 'admin/Users';
 
 $route['siswa/pendaftaran'] = 'student/Pendaftaran';
 $route['siswa/send-pendaftaran'] = 'student/Pendaftaran/sendPendaftaran';
+
+//Send Email
+$route['send-email'] = 'SendEmail';

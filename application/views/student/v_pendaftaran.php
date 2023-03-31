@@ -23,6 +23,15 @@
               <div class="card-body">
                 <form action="<?=base_url('siswa/send-pendaftaran') ?>" method="POST">
                     <div class="form-group">
+                        <label for="jurusan_id">Pilih Jurusan</label>
+                        <select name="jurusan_id" class="form-control" required>
+                            <option value="">-- Pilih Jurusan --</option>
+                            <?php foreach($jurusan as $j): ?>
+                                <option value="<?=$j->id ?>"><?=$j->nama_jurusan ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="nama_lengkap">Nama Lengkap</label>
                         <input type="text" name="nama_lengkap" class="form-control" autofocus required>
                     </div>
@@ -55,6 +64,10 @@
                     <div class="form-group">
                         <label for="no_hp">No HP/WA</label>
                         <input type="number" name="no_hp" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Aktif</label>
+                        <input type="email" name="email" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat</label>

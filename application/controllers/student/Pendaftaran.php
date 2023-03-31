@@ -5,26 +5,35 @@ class Pendaftaran extends CI_Controller{
     public function __construct(){
         parent::__construct();
        $this->load->model('pendaftaran_model', 'pendaftaran');
+       $this->load->model('jurusan_model', 'jurusan');
     }
 
     public function index(){
         $data['title'] = 'Form Pendaftaran';
-
+        $data['jurusan'] = $this->jurusan->get_all_data()->result();
         $this->load->view('student/partials/header', $data);
-        $this->load->view('student/v_pendaftaran');
+        $this->load->view('student/v_pendaftaran', $data);
         $this->load->view('student/partials/footer');
+    }
+
+    private function _noPendaftaran()
+    {
+        //membuat nomor pendaftaran otomatis dengan random
+       return $no_pendaftaran = rand(100000, 999999);
     }
 
     public function sendPendaftaran(){
         
         $data = [
-            'user_id'               => 1,
+            'no_pendaftaran'        => $this->_noPendaftaran(),
+            'jurusan_id'            => $this->input->post('jurusan_id'),
             'nama_lengkap'          => $this->input->post('nama_lengkap'),
             'tempat_lahir'          => $this->input->post('tempat_lahir'),
             'tgl_lahir'             => $this->input->post('tgl_lahir'),
             'jenis_kelamin'         => $this->input->post('jenis_kelamin'),
             'agama'                 => $this->input->post('agama'),
             'no_hp'                 => $this->input->post('no_hp'),
+            'email'                 => $this->input->post('email'),
             'alamat'                => $this->input->post('alamat'),
             'nm_ibu'                => $this->input->post('nm_ibu'),
             'pekerjaan_orangtua'    => $this->input->post('pekerjaan_orangtua'),

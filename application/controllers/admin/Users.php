@@ -6,13 +6,17 @@ class Users extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
+         //jika belum login maka akan diarahkan ke halaman login
+         if (!$this->session->userdata('email')) {
+            redirect('login');
+        }
         $this->load->model('users_model', 'users');
     }
 
     public function index()
     { 
         $data['title'] = 'Data Users';
-        $data['users'] = $this->users->get_all_data()->result();
+        $data['users'] = $this->users->get_all_data();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar');

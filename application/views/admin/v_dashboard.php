@@ -25,7 +25,9 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>
+                  <?php echo count($pendaftaran); ?>
+                </h3>
 
                 <p>Total Pendaftar</p>
               </div>
@@ -39,7 +41,9 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>122</h3>
+                <h3>
+                  <?php echo count($siswa); ?>
+                </h3>
 
                 <p>Total Siswa</p>
               </div>
@@ -53,7 +57,9 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>150</h3>
+                <h3>
+                  <?php echo count($users); ?>
+                </h3>
 
                 <p>Total User</p>
               </div>
@@ -67,7 +73,9 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>28</h3>
+                <h3>
+                  <?php echo count($menunggu_verifikasi); ?>
+                </h3>
 
                 <p>Menunggu Verifikasi</p>
               </div>
