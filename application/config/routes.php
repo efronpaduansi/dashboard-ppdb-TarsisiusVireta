@@ -68,12 +68,20 @@ $route['siswa'] = 'admin/DataSiswa';
 $route['kelas'] = 'admin/Kelas';
 $route['jurusan'] = 'admin/Jurusan';
 $route['jurusan'] = 'admin/Jurusan';
+$route['my-profile'] = 'admin/Profile';
+$route['my-profile/pass-change'] = 'admin/Profile/passChange';
+$route['settings'] = 'admin/Settings';
+$route['soal'] = 'admin/Settings/newSoal';
 
 //Routes for Preferences
 $route['users'] = 'admin/Users';
 
 $route['siswa/pendaftaran'] = 'student/Pendaftaran';
 $route['siswa/send-pendaftaran'] = 'student/Pendaftaran/sendPendaftaran';
+$route['siswa/status'] = 'student/Pendaftaran/status';
+$route['siswa/status-check'] = 'student/Pendaftaran/statusCheck';
+$route['siswa/ujian'] = 'student/Pendaftaran/ujian';
+$route['siswa/send-ujian'] = 'student/Pendaftaran/sendUjian';
 
 //Send Email
 $route['send-email'] = 'SendEmail';

@@ -15,11 +15,11 @@ class Profile extends CI_Controller {
     public function index()
     {
         $data['title'] = 'My Profile';
-
+        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar');
         $this->load->view('templates/sidebar');
-        $this->load->view('admin/v_profile');
+        $this->load->view('admin/v_profile', $data);
         $this->load->view('templates/footer');
 
 

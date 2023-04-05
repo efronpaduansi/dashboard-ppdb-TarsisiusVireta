@@ -46,4 +46,37 @@ class Pendaftaran extends CI_Controller{
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Anda berhasil terkirim!</div>');
         redirect('siswa/pendaftaran');
     }
+
+    public function status()
+    {
+        $data['title'] = 'Cek Status Pendaftaran';
+        $this->load->view('student/partials/header', $data);
+        $this->load->view('student/v_cek_status');
+        $this->load->view('student/partials/footer');
+    }
+
+    public function statusCheck()
+    {
+        $pendaftaran = $this->pendaftaran->getByStatusByNumber($this->input->post('etNomor'));
+        //hitung data yang dikembalikan
+        $count = count($pendaftaran);
+        if($count < 1){
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Status pendaftaran tidak ditemukan!</div>');
+            redirect('siswa/status');
+        }else{
+            $data['title'] = 'Status Pendaftaran';
+            $data['pendaftaran'] = $pendaftaran[0];
+            $this->load->view('student/partials/header', $data);
+            $this->load->view('student/v_status', $data);
+            $this->load->view('student/partials/footer');
+        }
+    }
+
+    public function ujian()
+    {
+        $data['title'] = 'Ujian';
+        $this->load->view('student/partials/header', $data);
+        $this->load->view('student/v_ujian');
+        $this->load->view('student/partials/footer');
+    }
 }

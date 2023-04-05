@@ -81,7 +81,7 @@
           </li>
           <li class="nav-header">PREFERENCES</li>
           <li class="nav-item">
-            <a href="<?=base_url('my-profile'); ?>" <?=$this->uri->segment(1) == 'profile' ? 'class="nav-link active"' : 'class="nav-link"' ?>>
+            <a href="<?=base_url('my-profile'); ?>" <?=$this->uri->segment(1) == 'my-profile' ? 'class="nav-link active"' : 'class="nav-link"' ?>>
               <i class="nav-icon fas fa-user"></i>
               <p>Profile</p>
             </a>
@@ -93,7 +93,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="https://adminlte.io/docs/3.1/" <?=$this->uri->segment(1) == 'setting' ? 'class="nav-link active"' : 'class="nav-link"' ?>>
+            <a href="<?=base_url('settings') ?>" <?=$this->uri->segment(1) == 'settings' ? 'class="nav-link active"' : 'class="nav-link"' ?>>
               <i class="nav-icon fas fa-cog"></i>
               <p>Setting</p>
             </a>

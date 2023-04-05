@@ -45,7 +45,8 @@ class Auth extends CI_Controller{
 				if(password_verify($password, $user['password'])){
 					$data = [
 						'email' => $user['email'],
-						'name' => $user['name']
+						'name' => $user['name'],
+						'level' => $user['level']
 					];
 					$this->session->set_userdata($data);
 					redirect('dashboard');
@@ -57,7 +58,7 @@ class Auth extends CI_Controller{
 				}
 		}else{
 			//kirimkan flashdata
-			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Email yang anda masukkan belum terdaftar!</div>');
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Email atau password salah!</div>');
 			//arahkan kehalaman login
 			redirect('/login');
 		}
