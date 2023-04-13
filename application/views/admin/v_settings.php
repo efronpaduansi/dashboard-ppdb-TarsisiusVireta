@@ -31,9 +31,24 @@
                   <tr>
                     <th>#</th>
                     <th>Soal</th>
+                    <th>Bobot</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
+                  <tbody>
+                    <?php $no = 1; ?>
+                    <?php foreach($soals as $s): ?>
+                    <tr>
+                       <td><?=$no; ?></td>
+                       <td><?=$s['soal']; ?></td>
+                       <td><?=$s['bobot']; ?></td>
+                       <td>
+                        <a href="<?=base_url('soal/delete/' . $s['id']) ?>" class="text-danger" onclick="return confirm('Yakin menghapus data ini?')">Hapus</a>
+                       </td>
+                    </tr>
+                    <?php $no++; ?>
+                    <?php endforeach; ?>
+                  </tbody>
                 </table>
               </div>
               <!-- /.card-body -->
@@ -68,6 +83,10 @@
                 <div class="invalid-feedback">
                     Field ini wajib di isi!
                 </div>
+            </div>
+            <div class="form-group">
+              <label for="etBobot">Bobot <small class="text-danger">*</small></label>
+              <input type="number" name="etBobot" id="etBobot" class="form-control" required>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

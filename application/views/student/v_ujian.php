@@ -23,26 +23,11 @@
               <div class="card-body">
                 <form action="<?=base_url('siswa/send-ujian') ?>" method="POST">
                     <div class="form-group">
-                        <label for="etJawaban1">Soal pertama</label>
-                        <textarea name="etJawaban1" id="etJawaban1" cols="30" rows="3" class="form-control"></textarea>
+                        <label for="jawaban"><?=$soal[0]['soal'] ?></label>
+                        <input type="hidden" name="soal_id" value="<?=$soal[0]['id'] ?>">
+                        <textarea name="jawaban" id="jawaban" cols="30" rows="3" class="form-control" placeholder="Jawaban Anda"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="etJawaban2">Soal Kedua</label>
-                        <textarea name="etJawaban2" id="etJawaban2" cols="30" rows="3" class="form-control"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="etJawaban2">Soal Ketiga</label>
-                        <textarea name="etJawaban2" id="etJawaban2" cols="30" rows="3" class="form-control"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="etJawaban2">Soal Keempat</label>
-                        <textarea name="etJawaban2" id="etJawaban2" cols="30" rows="3" class="form-control"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="etJawaban2">Soal Kelima</label>
-                        <textarea name="etJawaban2" id="etJawaban2" cols="30" rows="3" class="form-control"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Kirim Jawaban</button>
+                    <button type="submit" class="btn btn-primary">Lanjutkan</button>
                 </form>
               </div>
               <!-- /.card-body -->

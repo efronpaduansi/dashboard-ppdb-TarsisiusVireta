@@ -15,6 +15,7 @@ class Settings extends CI_Controller{
     public function index()
     {
         $data['title'] = 'Settings';
+        $data['soals'] = $this->bank_soal->getSoal();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar');
         $this->load->view('templates/sidebar');
@@ -24,7 +25,17 @@ class Settings extends CI_Controller{
 
     public function newSoal()
     {
-        //Simpan data ke database
-        
+        $data = [
+            'soal' => $this->input->post('etSoal'),
+            'bobot' => $this->input->post('etBobot'),
+        ];
+        $this->bank_soal->insert($data);
+        redirect('settings');
+    }
+
+    public function deleteSoal($id)
+    {
+       $this->bank_soal->delete($id);
+       redirect('settings');
     }
 }

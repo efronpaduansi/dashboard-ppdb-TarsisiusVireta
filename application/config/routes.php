@@ -72,6 +72,7 @@ $route['my-profile'] = 'admin/Profile';
 $route['my-profile/pass-change'] = 'admin/Profile/passChange';
 $route['settings'] = 'admin/Settings';
 $route['soal'] = 'admin/Settings/newSoal';
+$route['soal/delete/(:any)'] = 'admin/Settings/deleteSoal/$1';
 
 //Routes for Preferences
 $route['users'] = 'admin/Users';

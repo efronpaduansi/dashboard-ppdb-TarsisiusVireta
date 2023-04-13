@@ -6,6 +6,8 @@ class Pendaftaran extends CI_Controller{
         parent::__construct();
        $this->load->model('pendaftaran_model', 'pendaftaran');
        $this->load->model('jurusan_model', 'jurusan');
+       $this->load->model('banksoal_model', 'bank_soal');
+       $this->load->model('jawaban_model', 'jawaban');
     }
 
     public function index(){
@@ -75,8 +77,37 @@ class Pendaftaran extends CI_Controller{
     public function ujian()
     {
         $data['title'] = 'Ujian';
+        $data['soal'] = $this->bank_soal->getSoal();
         $this->load->view('student/partials/header', $data);
-        $this->load->view('student/v_ujian');
+        $this->load->view('student/v_ujian', $data);   
         $this->load->view('student/partials/footer');
+    }
+
+    public function sendUjian()
+    {
+        $data = [
+            'soal_id' => $this->input->post('soal_id'),
+            'user_id' => 1,
+            'jawaban' => $this->input->post('jawaban'),
+        ];
+        $simpan = $this->jawaban->insert($data);
+        //ambil soal id berikutnya
+        $soal_id = $this->input->post('soal_id') + 1;
+
+        //cek apakah soal id berikutnya ada
+        $soal = $this->bank_soal->getSoalById($soal_id);
+        if($soal == null){
+            $data['title'] = 'Ujian';
+            $this->load->view('student/partials/header', $data);
+            $this->load->view('student/v_ujian_selesai', $data);   
+            $this->load->view('student/partials/footer');
+        }else{
+            $data['title'] = 'Ujian';
+            $data['soal'] = $this->bank_soal->getSoalById($soal_id);
+            $this->load->view('student/partials/header', $data);
+            $this->load->view('student/v_ujian_next', $data);   
+            $this->load->view('student/partials/footer');
+        }
+        
     }
 }
